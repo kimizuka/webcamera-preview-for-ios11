@@ -1,6 +1,6 @@
 const medias = {audio : false, video : {
-        width : {
-          facingMode : "user"
+        facingMode : {
+          exact : "environment"
         }
       }},
       video  = document.getElementById("video"),
