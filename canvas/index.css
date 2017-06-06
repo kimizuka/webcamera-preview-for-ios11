@@ -12,7 +12,7 @@ body {
 
 #video {
   display: block;
-  transform: rotateZ(180deg);
+  transform: rotateZ(180deg); /* なぜか天地反転するので天地反転し返す */
 }
 
 #canvas {
