@@ -3,12 +3,16 @@ body {
   background: #000;
 }
 
-#video {
+#videobox {
   position: absolute;
   top: 10px; left: 10px;
-  display: block;
   transform-origin: left top;
   transform: scale(.1);
+}
+
+#video {
+  display: block;
+  transform: rotateZ(180deg);
 }
 
 #canvas {
