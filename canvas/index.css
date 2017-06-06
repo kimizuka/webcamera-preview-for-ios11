@@ -4,8 +4,7 @@ body {
 }
 
 #video {
-  display: block;
-  width: 100%;
+  display: none;
 }
 
 #canvas {
