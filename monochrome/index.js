@@ -1,4 +1,8 @@
-const medias = {audio : false, video : true},
+const medias = {audio : false, video : {
+        width : {
+          facingMode : "user"
+        }
+      }},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
