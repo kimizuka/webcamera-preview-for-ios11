@@ -5,6 +5,8 @@ const medias = {audio : false, video : true},
 
 navigator.getUserMedia(medias, successCallback, errorCallback);
 
+requestAnimationFrame(draw);
+
 function successCallback(stream) {
   video.srcObject = stream;
 };
@@ -13,8 +15,10 @@ function errorCallback(err) {
   alert(err);
 };
 
-setInterval(() => {
+function draw() {
   canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx.drawImage(video, 0, 0);
-}, 100);
+
+  requestAnimationFrame(draw);
+}
