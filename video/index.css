@@ -3,7 +3,7 @@ body {
   background: #000;
 }
 
-video {
+#video {
   display: block;
   width: 100%;
 }
