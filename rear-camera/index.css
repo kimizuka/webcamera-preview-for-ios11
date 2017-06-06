@@ -6,4 +6,5 @@ body {
 #video {
   display: block;
   width: 100%;
+  transform: rotateZ(180deg);
 }
