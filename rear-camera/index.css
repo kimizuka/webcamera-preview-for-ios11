@@ -6,5 +6,4 @@ body {
 #video {
   display: block;
   width: 100%;
-  transform: rotateZ(180deg); /* なぜか天地反転するので天地反転し返す */
 }
