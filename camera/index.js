@@ -9,6 +9,11 @@ const medias = {audio : false, video : {
 
 navigator.getUserMedia(medias, successCallback, errorCallback);
 
+canvas.addEventListener("click", () => {
+  // let blob = toBlob(canvas);
+  window.open(canvas.toDataURL("image/png"));
+}, false);
+
 requestAnimationFrame(draw);
 
 function successCallback(stream) {
@@ -25,4 +30,18 @@ function draw() {
   ctx.drawImage(video, 0, 0);
 
   requestAnimationFrame(draw);
+}
+
+function toBlob(canvas) {
+  let base64 = canvas.toDataURL("image/png"),
+      bin    = atob(base64.replace(/^.*,/, "")),
+      buffer = new Uint8Array(bin.length);
+
+  for (let i = 0, length = bin.length; i < length; ++i) {
+    buffer[i] = bin.charCodeAt(i);
+  }
+
+  return new Blob([buffer.buffer], {
+    type: "image/png"
+  });
 }
