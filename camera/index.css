@@ -3,6 +3,10 @@ body {
   background: #000;
 }
 
+#video {
+  display: none;
+}
+
 #canvas {
   display: block;
   position: absolute;

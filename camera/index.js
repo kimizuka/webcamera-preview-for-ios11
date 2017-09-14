@@ -3,7 +3,7 @@ const medias = {audio : false, video : {
           exact : "environment"
         }
       }},
-      video  = document.createElement("video"),
+      video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
       ctx    = canvas.getContext("2d");
 
