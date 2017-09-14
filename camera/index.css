@@ -3,15 +3,9 @@ body {
   background: #000;
 }
 
-#videobox {
-  position: absolute;
-  top: 10px; left: 10px;
-  transform-origin: left top;
-  transform: scale(.1);
-}
-
 #video {
-  display: block;
+  width: 1px; height: 1px;
+  opacity: 0;
 }
 
 #canvas {
