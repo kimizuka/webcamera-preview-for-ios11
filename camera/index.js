@@ -11,6 +11,7 @@ navigator.getUserMedia(medias, successCallback, errorCallback);
 
 canvas.addEventListener("click", () => {
   // let blob = toBlob(canvas);
+  console.log(canvas.toDataURL("image/png"));
   window.open(canvas.toDataURL("image/png"));
 }, false);
 
