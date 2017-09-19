@@ -5,8 +5,9 @@ const medias = {audio : false, video : {
       }},
       video  = document.getElementById("video"),
       canvas = document.getElementById("canvas"),
-      ctx    = canvas.getContext("2d"),
-      txt    = "";
+      ctx    = canvas.getContext("2d");
+
+let txt = "";
 
 navigator.getUserMedia(medias, successCallback, errorCallback);
 
