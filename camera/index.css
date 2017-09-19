@@ -30,6 +30,7 @@ body {
   background: #fefefe;
   z-index: 9999;
   overflow: hidden;
+  opacity: .8;
   -webkit-transition: opacity .8s ease;
   transition: opacity .8s ease;
 }

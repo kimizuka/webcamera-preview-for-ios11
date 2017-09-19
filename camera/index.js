@@ -8,7 +8,8 @@ const medias = {audio : false, video : {
       loading = document.getElementById("loading"),
       ctx     = canvas.getContext("2d");
 
-let txt = "",
+let isPause = false,
+    txt     = "",
     msg;
 
 navigator.getUserMedia(medias, successCallback, errorCallback);
@@ -16,6 +17,8 @@ navigator.getUserMedia(medias, successCallback, errorCallback);
 canvas.addEventListener("click", () => {
   // let blob = toBlob(canvas);
   let base64 = canvas.toDataURL("image/png").replace("data:image/png;base64,", "");
+
+  isPause = true;
 
   if (!msg) {
     loading.classList.add("show");
@@ -53,9 +56,11 @@ function errorCallback(err) {
 };
 
 function draw() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  ctx.drawImage(video, 0, 0);
+  if (isPause) {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.drawImage(video, 0, 0);
+  }
 
   requestAnimationFrame(draw);
 }
@@ -122,6 +127,10 @@ function toBlob(canvas) {
 
 function speak() {
   msg.lang = "en-US";
+  msg.onend = () => {
+    msg     = null;
+    isPause = false;
+  }
+
   speechSynthesis.speak(msg);
-  msg = null;
 }
