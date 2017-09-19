@@ -3,9 +3,10 @@ const medias = {audio : false, video : {
           exact : "environment"
         }
       }},
-      video  = document.getElementById("video"),
-      canvas = document.getElementById("canvas"),
-      ctx    = canvas.getContext("2d");
+      video   = document.getElementById("video"),
+      canvas  = document.getElementById("canvas"),
+      loading = document.getElementById("loading"),
+      ctx     = canvas.getContext("2d");
 
 let txt = "";
 
@@ -16,6 +17,7 @@ canvas.addEventListener("click", () => {
   let base64 = canvas.toDataURL("image/png").replace("data:image/png;base64,", "");
 
   if (!txt) {
+    loading.classList.add("show");
     getTitle(base64).then((evt) => {
       let result = JSON.parse(evt.target.response);
 
@@ -24,6 +26,7 @@ canvas.addEventListener("click", () => {
       let result = JSON.parse(evt.target.response);
 
       txt = result.itemListElement[0].result.detailedDescription.articleBody;
+      loading.classList.remove("show");
     });
   } else {
     let msg = new SpeechSynthesisUtterance(txt);
