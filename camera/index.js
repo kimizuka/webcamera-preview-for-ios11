@@ -23,14 +23,19 @@ canvas.addEventListener("click", () => {
   if (!msg) {
     loading.classList.add("show");
     getTitle(base64).then((evt) => {
-      let result = JSON.parse(evt.target.response);
+      let result = JSON.parse(evt.target.response),
+          ttl    = result.responses[0].labelAnnotations[0].description;
 
-      return getKnowledge(result.responses[0].labelAnnotations[0].description);
+      document.getElementById("ttl").innerText = ttl;
+
+      return getKnowledge(ttl);
     }).then((evt) => {
       let result = JSON.parse(evt.target.response);
 
       txt = result.itemListElement[0].result.detailedDescription.articleBody;
       msg = new SpeechSynthesisUtterance(txt);
+
+      document.getElementById("txt").innerText = txt;
 
       loading.classList.remove("show");
 
@@ -130,6 +135,8 @@ function speak() {
   msg.onend = () => {
     msg     = null;
     isPause = false;
+    document.getElementById("ttl").innerText = "";
+    document.getElementById("txt").innerText = "";
   }
 
   speechSynthesis.speak(msg);
