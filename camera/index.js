@@ -56,7 +56,7 @@ function errorCallback(err) {
 };
 
 function draw() {
-  if (isPause) {
+  if (!isPause) {
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
     ctx.drawImage(video, 0, 0);
