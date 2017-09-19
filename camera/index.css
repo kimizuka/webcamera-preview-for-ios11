@@ -28,6 +28,7 @@ body {
   position: absolute;
   top: 20px; bottom: 20px;
   left: 20px; right: 20px;
+  pointer-events: none;
 }
 
 #ttl {
