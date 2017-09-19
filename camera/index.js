@@ -8,7 +8,8 @@ const medias = {audio : false, video : {
       loading = document.getElementById("loading"),
       ctx     = canvas.getContext("2d");
 
-let txt = "";
+let txt = "",
+    msg;
 
 navigator.getUserMedia(medias, successCallback, errorCallback);
 
@@ -16,7 +17,7 @@ canvas.addEventListener("click", () => {
   // let blob = toBlob(canvas);
   let base64 = canvas.toDataURL("image/png").replace("data:image/png;base64,", "");
 
-  if (!txt) {
+  if (!msg) {
     loading.classList.add("show");
     getTitle(base64).then((evt) => {
       let result = JSON.parse(evt.target.response);
@@ -26,14 +27,18 @@ canvas.addEventListener("click", () => {
       let result = JSON.parse(evt.target.response);
 
       txt = result.itemListElement[0].result.detailedDescription.articleBody;
+      msg = new SpeechSynthesisUtterance(txt);
+
       loading.classList.remove("show");
+
+      try {
+        speak();
+      } catch(err) {
+
+      }
     });
   } else {
-    let msg = new SpeechSynthesisUtterance(txt);
-
-    txt = "";
-    msg.lang = "en-US";
-    speechSynthesis.speak(msg);
+    speak();
   }
 }, false);
 
@@ -113,4 +118,10 @@ function toBlob(canvas) {
   return new Blob([buffer.buffer], {
     type: "image/png"
   });
+}
+
+function speak() {
+  msg.lang = "en-US";
+  speechSynthesis.speak(msg);
+  msg = null;
 }
