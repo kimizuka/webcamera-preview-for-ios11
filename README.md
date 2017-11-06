@@ -12,11 +12,14 @@ https://kimizuka.github.io/webcamera-preview-for-ios11/
 ### フロントカメラをプレビュー
 https://kimizuka.github.io/webcamera-preview-for-ios11/front-camera/
 
-### リアカメラをプレビュー（天地反転）
+### リアカメラをプレビュー
 https://kimizuka.github.io/webcamera-preview-for-ios11/rear-camera/
 
-### リアカメラの映像をCanvasに書き込む（天地反転）
+### リアカメラの映像をCanvasに書き込む
 https://kimizuka.github.io/webcamera-preview-for-ios11/canvas/
 
-### リアカメラの映像をCanvasに書き込んでモノクロにする（天地反転）
+### リアカメラの映像をCanvasに書き込んでモノクロにする
 https://kimizuka.github.io/webcamera-preview-for-ios11/monochrome/
+
+### 車窓に合わせるデモ
+https://kimizuka.github.io/webcamera-preview-for-ios11/carnvas-demo/
