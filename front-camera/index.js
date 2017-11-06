@@ -1,4 +1,6 @@
-const medias = {audio : false, video : true},
+const medias = {audio : false, video : {
+        facingMode: "user"
+      }},
       video  = document.getElementById("video");
 
 navigator.getUserMedia(medias, successCallback, errorCallback);
