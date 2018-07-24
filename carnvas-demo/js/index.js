@@ -38,7 +38,7 @@
 
   class Runner {
     constructor(id) {
-      this.INTERVAL = 60;
+      this.INTERVAL = 40;
       this.actionRun     = new Action({
         prefix : "r",
         length : 18
