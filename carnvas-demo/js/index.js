@@ -87,7 +87,11 @@
     constructor(param) {
       const medias = {
         audio: false,
-        video: true
+        video: {
+          facingMode: {
+            exact: "environment"
+          }
+        }
       };
 
       this.video    = param.video;
