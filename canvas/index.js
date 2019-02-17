@@ -1,21 +1,22 @@
-const medias = {audio : false, video : {
-        facingMode : {
-          exact : "environment"
-        }
-      }},
-      video  = document.getElementById("video"),
-      canvas = document.getElementById("canvas"),
-      ctx    = canvas.getContext("2d");
+const medias = {
+  audio: false,
+  video: true
+};
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const promise = navigator.mediaDevices.getUserMedia(medias);
 
-navigator.getUserMedia(medias, successCallback, errorCallback);
-
-requestAnimationFrame(draw);
+promise.then(successCallback)
+       .catch(errorCallback);
 
 function successCallback(stream) {
   video.srcObject = stream;
+  requestAnimationFrame(draw);
 }
 
 function errorCallback(err) {
+  console.log(err);
   alert(err);
 }
 
