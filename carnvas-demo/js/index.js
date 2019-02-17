@@ -86,23 +86,19 @@
   class Camera {
     constructor(param) {
       const medias = {
-              audio : false,
-              video : {
-                facingMode : {
-                  exact : "environment"
-                }
-              }
-            };
+        audio: false,
+        video: true
+      };
 
       this.video    = param.video;
       this.canvas   = param.canvas;
       this.ctx      = this.canvas.getContext("2d");
       this.INTERVAL = param.interval;
 
-      navigator.getUserMedia(medias, (stream) => {
+      navigator.mediaDevices.getUserMedia(medias).then((stream) => {
         this.video.srcObject = stream;
         this.start();
-      }, (err) => {
+      }).catch((err) => {
         alert(err);
       });
     }
